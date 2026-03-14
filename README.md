@@ -4,18 +4,30 @@
 This project implements a batch data pipeline that ingests daily trending movie data from the TMDB API, stores raw JSON payloads in PostgreSQL, transforms nested structures into relational tables using SQL, and exposes analytics-ready datasets for reporting in Power BI.
 
 ## Architecture
-TMDB API
+TMDB API 
+
 ↓
+
 Python ingestion script
+
 ↓
+
 PostgreSQL raw ingestion layer
+
 ↓
+
 SQL transformations
+
 ↓
+
 Analytics-ready daily table
+
 ↓
+
 Reporting view
+
 ↓
+
 Power BI dashboard
 
 ## Technologies
