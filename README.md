@@ -51,3 +51,10 @@ raw.tmdb_trending_daily
 
 ## View
 raw.v_trending_latest_with_change
+
+## Idempotency
+
+The ingestion pipeline is designed to be idempotent.  
+A unique constraint on (snapshot_date, page) ensures no duplicate data is inserted.  
+The pipeline uses ON CONFLICT DO NOTHING to safely handle reruns.
+
