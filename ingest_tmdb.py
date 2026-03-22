@@ -45,6 +45,7 @@ def main() -> None:
                         INSERT INTO raw.tmdb_trending_raw
                         (snapshot_date, endpoint, payload, page)
                         VALUES (%s, %s, %s::jsonb, %s)
+                        ON CONFLICT (snapshot_date, page) DO NOTHING;
                         """,
                         (date.today(), ENDPOINT, json.dumps(payload), page),
                     )
