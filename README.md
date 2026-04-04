@@ -58,3 +58,8 @@ The ingestion pipeline is designed to be idempotent.
 A unique constraint on (snapshot_date, page) ensures no duplicate data is inserted.  
 The pipeline uses ON CONFLICT DO NOTHING to safely handle reruns.
 
+## Incremental & Idempotent Load
+The load process is incremental and idempotent.
+It processes all available snapshot dates and safely skips duplicates using ON CONFLICT.
+Missed days are automatically backfilled on the next run.
+
