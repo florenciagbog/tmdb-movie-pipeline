@@ -6,18 +6,19 @@ from the TMDB API, stores raw JSON payloads in PostgreSQL, transforms nested str
 into relational tables using SQL, and exposes analytics-ready datasets for reporting in Power BI.
 
 ## Architecture
+```
 TMDB API (trending + genres)
- ↓
+↓
 Python ingestion scripts (ingest_tmdb.py, get_tmdb_genres.py)
- ↓
+↓
 PostgreSQL raw layer (raw JSON storage)
- ↓
+↓
 SQL transformations (flattening, deduplication)
- ↓
+↓
 Star schema (facts + dimensions)
- ↓
+↓
 Power BI dashboard (in progress)
-
+```
 ## Tech Stack
 - Python
 - PostgreSQL
