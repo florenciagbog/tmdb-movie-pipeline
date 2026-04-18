@@ -1,65 +1,52 @@
 # TMDB Movie Trending Data Pipeline
 
 ## Overview
-This project implements a batch data pipeline that ingests daily trending movie data from the TMDB API, stores raw JSON payloads in PostgreSQL, transforms nested structures into relational tables using SQL, and exposes analytics-ready datasets for reporting in Power BI.
+This project implements a batch data pipeline that ingests daily trending movie data 
+from the TMDB API, stores raw JSON payloads in PostgreSQL, transforms nested structures 
+into relational tables using SQL, and exposes analytics-ready datasets for reporting in Power BI.
 
 ## Architecture
-TMDB API 
-
+TMDB API (trending + genres)
 ↓
-
-Python ingestion script
-
+Python ingestion scripts (ingest_tmdb.py, get_tmdb_genres.py)
 ↓
-
-PostgreSQL raw ingestion layer
-
+PostgreSQL raw layer (raw JSON storage)
 ↓
-
-SQL transformations
-
+SQL transformations (flattening, deduplication)
 ↓
-
-Analytics-ready daily table
-
+Star schema (facts + dimensions)
 ↓
+Power BI dashboard (in progress)
 
-Reporting view
-
-↓
-
-Power BI dashboard
-
-## Technologies
+## Tech Stack
 - Python
 - PostgreSQL
 - SQL
 - TMDB API
 - Power BI
 
+## Database Structure
+
+**Raw layer**
+- `raw.tmdb_trending_raw` — raw JSON payloads from the API
+- `raw.tmdb_trending_movies_raw` — one row per movie per day, flattened
+- `raw.tmdb_trending_daily` — cleaned daily rankings
+
+**Analytics layer**
+- `analytics.fact_trending_daily` — daily ranking fact table with rank change metrics
+- `analytics.dim_movie` — movie dimension
+- `analytics.dim_genre` — genre lookup
+- `analytics.dim_calendar` — calendar dimension
+- `analytics.bridge_movie_genre` — movie to genre relationship
+
 ## Pipeline Features
-- Daily ingestion of trending movies
-- Raw JSON storage for traceability
-- JSON flattening into relational tables
-- Deduplication of movie rankings
-- Ranking change analysis
+- Daily ingestion of trending movies and genre data
+- Raw JSON storage for full traceability
+- Idempotent loads using ON CONFLICT throughout
+- Automatic backfill of missed days
+- Rank change tracking (previous rank, rank delta, new entry detection)
 
-## Tables
-raw.tmdb_trending_raw  
-raw.tmdb_trending_movies_raw  
-raw.tmdb_trending_daily  
-
-## View
-raw.v_trending_latest_with_change
-
-## Idempotency
-
-The ingestion pipeline is designed to be idempotent.  
-A unique constraint on (snapshot_date, page) ensures no duplicate data is inserted.  
-The pipeline uses ON CONFLICT DO NOTHING to safely handle reruns.
-
-## Incremental & Idempotent Load
-The load process is incremental and idempotent.
-It processes all available snapshot dates and safely skips duplicates using ON CONFLICT.
-Missed days are automatically backfilled on the next run.
-
+## Power BI Dashboard (in progress)
+- Top trending movies of the day
+- Ranking trends over time
+- Best movies by popularity and vote average
