@@ -15,7 +15,7 @@ PostgreSQL raw layer (raw JSON storage)
 ↓
 SQL transformations (flattening, deduplication)
 ↓
-Star schema (facts + dimensions)
+Analytics layer (facts + dimensions)
 ↓
 Power BI dashboard (in progress)
 ```
