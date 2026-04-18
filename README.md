@@ -44,10 +44,6 @@ Power BI dashboard (in progress)
 - Daily ingestion of trending movies and genre data
 - Raw JSON storage for full traceability
 - Idempotent loads using ON CONFLICT throughout
-- Automatic backfill of missed days
 - Rank change tracking (previous rank, rank delta, new entry detection)
 
 ## Power BI Dashboard (in progress)
-- Top trending movies of the day
-- Ranking trends over time
-- Best movies by popularity and vote average
