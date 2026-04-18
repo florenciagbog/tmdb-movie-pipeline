@@ -7,15 +7,15 @@ into relational tables using SQL, and exposes analytics-ready datasets for repor
 
 ## Architecture
 TMDB API (trending + genres)
-↓
+ ↓
 Python ingestion scripts (ingest_tmdb.py, get_tmdb_genres.py)
-↓
+ ↓
 PostgreSQL raw layer (raw JSON storage)
-↓
+ ↓
 SQL transformations (flattening, deduplication)
-↓
+ ↓
 Star schema (facts + dimensions)
-↓
+ ↓
 Power BI dashboard (in progress)
 
 ## Tech Stack
