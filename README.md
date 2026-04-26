@@ -29,12 +29,14 @@ Power BI dashboard (in progress)
 ## Database Structure
 
 **Raw layer**
-- `raw.tmdb_trending_raw` — raw JSON payloads from the TMDB API, one row per page per day
-- `raw.tmdb_trending_movies_raw` — flattened movies, one row per movie per day with full JSON payload
-- `raw.tmdb_trending_daily` — cleaned daily rankings with numeric metrics extracted from JSON
+- `raw.tmdb_api_responses` — raw JSON payloads from the TMDB API, one row per page per day
+
+**Staging layer**
+- `staging.tmdb_movie_entries` — flattened movies, one row per movie per day with full JSON payload
+- `staging.tmdb_daily_metrics` — cleaned daily rankings with numeric metrics extracted from JSON
 
 **Analytics layer**
-- `analytics.fact_trending_daily` — daily fact table with rank, engagement metrics, and rank change tracking
+- `analytics.fact_daily_movie` — daily fact table with rank, engagement metrics, and rank change tracking
 - `analytics.dim_movie` — movie attributes (title, language, release date, overview)
 - `analytics.dim_genre` — genre reference table
 - `analytics.dim_calendar` — calendar dimension for date-based filtering and reporting
@@ -47,3 +49,9 @@ Power BI dashboard (in progress)
 - Rank change tracking (previous rank, rank delta, new entry detection)
 
 ## Power BI Dashboard (in progress)
+- Top trending movies of the day
+- Ranking trends over time
+- Best movies by popularity and vote average
+
+## Future Improvements
+- Orchestration with Apache Airflow or Prefect for automated daily runs
