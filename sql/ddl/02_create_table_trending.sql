@@ -1,6 +1,6 @@
 -- Stores one raw JSONB payload row per movie per day per endpoint, preserving the full API response before transformation.
 
-CREATE TABLE IF NOT EXISTS raw.tmdb_trending_movies_raw (
+CREATE TABLE IF NOT EXISTS stage.tmdb_movie_entries (
     snapshot_date  DATE        NOT NULL,
     endpoint       TEXT        NOT NULL,
     page           INTEGER     NOT NULL,

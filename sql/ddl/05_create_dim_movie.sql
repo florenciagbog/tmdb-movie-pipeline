@@ -1,5 +1,5 @@
 CREATE TABLE IF NOT EXISTS analytics.dim_movie (
-    movie_key          INTEGER      NOT NULL PRIMARY KEY,
+    movie_id          INTEGER      NOT NULL PRIMARY KEY,
     title              TEXT,
     original_title     TEXT,
     original_language  TEXT,
@@ -9,3 +9,5 @@ CREATE TABLE IF NOT EXISTS analytics.dim_movie (
     poster_path        TEXT,
     inserted_at        TIMESTAMPTZ  NOT NULL DEFAULT NOW()
 );
+
+-- ALTER TABLE analytics.dim_movie RENAME COLUMN movie_key TO movie_id;

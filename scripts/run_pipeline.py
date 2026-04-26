@@ -26,11 +26,11 @@ ingest_tmdb.main()
 
 # Step 3: run each SQL transform in order
 sql_files = [
-    "sql/20_load_raw_tables.sql",
-    "sql/21_load_dim_calendar.sql",
-    "sql/22_load_dim_movie.sql",
-    "sql/23_load_bridge_movie_genre.sql",
-    "sql/24_load_fact_table.sql",
+    "sql/transforms/20_load_raw_tables.sql",
+    "sql/transforms/21_load_dim_calendar.sql",
+    "sql/transforms/22_load_dim_movie.sql",
+    "sql/transforms/23_load_bridge_movie_genre.sql",
+    "sql/transforms/24_load_fact_table.sql",
 ]
 
 # Open a cursor to execute SQL against the database
