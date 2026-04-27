@@ -40,7 +40,7 @@ def main() -> None:
 
                     cur.execute(
                         """
-                        INSERT INTO raw.tmdb_trending_raw
+                        INSERT INTO raw.tmdb_api_responses
                         (snapshot_date, endpoint, payload, page)
                         VALUES (%s, %s, %s::jsonb, %s)
                         ON CONFLICT (snapshot_date, page) DO NOTHING;

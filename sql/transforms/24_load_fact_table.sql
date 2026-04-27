@@ -42,9 +42,12 @@ WITH ranked AS (
 UPDATE analytics.fact_daily_movie f
 SET
     previous_rank = r.calc_previous_rank,
-    rank_change = r.calc_previous_rank -f.rank,
+    rank_change = f.rank - r.calc_previous_rank,
     is_new_entry = (r.calc_previous_rank IS NULL)
 FROM ranked r
 WHERE f.movie_id = r.movie_id
   AND f.snapshot_date_key = r.snapshot_date_key
   AND (f.previous_rank IS NULL OR f.rank_change IS NULL);
+
+
+
