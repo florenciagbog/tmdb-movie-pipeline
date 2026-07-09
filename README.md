@@ -1,5 +1,9 @@
 # TMDB Movie Trending Data Pipeline
 
+## Live Dashboard
+
+**[Interactive Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiZDg4OWQ4ODItMTYzNC00ZTFmLTliMTQtZDBmZGYyZDlmMzFjIiwidCI6IjMyYjI3ZjU0LTA5ZmItNDhhZi05YzE3LTBmOThhNWQ1OThiZiIsImMiOjh9&embedImagePlaceholder=true)**
+
 ## Overview
 This project implements a batch data pipeline that ingests daily trending movie data 
 from the TMDB API, stores raw JSON payloads in PostgreSQL, transforms nested structures 
