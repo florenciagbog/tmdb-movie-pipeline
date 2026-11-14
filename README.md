@@ -1,5 +1,9 @@
 # TMDB Movie Trending Data Pipeline
 
+## Live Dashboard
+
+**[Interactive Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiNzgxZjBmNDEtYWE1Ni00YmE4LTgwYzYtNjcwN2E4MzhlNTJlIiwidCI6IjMyYjI3ZjU0LTA5ZmItNDhhZi05YzE3LTBmOThhNWQ1OThiZiIsImMiOjh9)**
+
 ## Overview
 
 This project is an end-to-end Data Engineering and Business Intelligence solution that ingests daily trending movie data from the TMDB API, stores raw JSON payloads in PostgreSQL, transforms them into an analytics-ready star schema, and delivers an interactive Power BI dashboard.
