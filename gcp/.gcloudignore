@@ -1,0 +1,9 @@
+.gcloudignore
+.git
+__pycache__/
+*.pyc
+.env
+migrate_postgres_to_bigquery.py
+requirements-migration.txt
+deploy.sh
+README.md

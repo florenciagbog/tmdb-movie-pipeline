@@ -1,0 +1,5 @@
+google-cloud-bigquery==3.*
+tzdata
+requests==2.*
+psycopg2-binary
+python-dotenv

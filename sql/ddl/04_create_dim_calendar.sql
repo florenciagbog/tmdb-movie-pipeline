@@ -10,3 +10,4 @@ CREATE TABLE IF NOT EXISTS analytics.dim_calendar (
     day_name TEXT NOT NULL,
     is_weekend BOOLEAN NOT NULL
 );
+
